@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors GAME</title>
+</head>
+
+<!-- style section from example game (number guessing game)-->
+<style>
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      width: 50%;
+      max-width: 800px;
+      min-width: 480px;
+      margin: 0 auto;
+    }
+    .lastResult {
+      color: white;
+      padding: 3px;
+    }
+  </style>
+
+<body>
+    
+    <h1>Rock Paper Scissors game</h1>
+
+    <p>Player needs to select one one of three 
+        possible selections (paper, rock scissors).
+        Computer selects automatically. 
+        Paper wins over rock, rock wins over scissors, scissors wins over paper.
+        Game has 5 rounds.
+    </p>
+
+<!-- comment out the input form from other game
+    <div class="form">
+<label for="guessField">Enter a guess: </label>
+<input type="text" id="guessField" class="guessField" value="75">
+<input type="submit" value="Submit guess" class="guessSubmit">
+</div>
+-->
+
+<div class="resultParas">
+<p class="guesses"></p>
+<p id="lastResult"></p>
+<p class="lowOrHi"></p>
+</div>
+
+
+ <!-- here the code to get my input via the prompt-->
+<button onclick="myFunction('paper')">Paper</button>
+<button onclick="myFunction('rock')">Rock</button>
+<button onclick="myFunction('scissors')">Scissors</button>
+
+<p id="demo"></p>
+
+<script>
+
+</script>
+
+
+    <!-- here the link to exteral javascript-->
+    <script src="script.js"></script> 
+</body>
+</html>
