@@ -22,6 +22,20 @@
       color: white;
       padding: 3px;
     }
+
+    button {
+      padding:10px;
+      margin:10px;
+      font-size: 2em;
+    }
+    .selectionButtons{
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
+
+
   </style>
 
 <body>
@@ -43,21 +57,29 @@
 </div>
 -->
 
+ <!-- here the code to get my input via the buttons-->
+ <div class="selectionButtons">
+    <button onclick="playRound('paper')">Paper</button>
+    <button onclick="playRound('rock')">Rock</button>
+    <button onclick="playRound('scissors')">Scissors</button>
+  </div>
+
+<!-- here the results will be presented -->
 <div class="resultParas">
-<p id="result1">Current state:</p>
 <p id="playerSelection">player: </p>
 <p id="computerSelection">comp: </p>
+<p id="round1">Current round:</p>
+<p id="result1">Current result:</p>
 </div>
 
 
- <!-- here the code to get my input via the prompt-->
-<!--
- <button onclick="myFunction('paper')" visibility="hidden">Paper</button>
-<button onclick="myFunction('rock')">Rock</button>
-<button onclick="myFunction('scissors')">Scissors</button>
--->
-<!-- here the code to start the game-->
+
+
+
+
+<!-- here the code to start the game
 <button onclick="myGame()">Start the Game</button>
+-->
 
 <p id="demo"></p>
 
