@@ -44,16 +44,20 @@
 -->
 
 <div class="resultParas">
-<p class="guesses"></p>
-<p id="lastResult"></p>
-<p class="lowOrHi"></p>
+<p id="result1">Current state:</p>
+<p id="playerSelection">player: </p>
+<p id="computerSelection">comp: </p>
 </div>
 
 
  <!-- here the code to get my input via the prompt-->
-<button onclick="myFunction('paper')">Paper</button>
+<!--
+ <button onclick="myFunction('paper')" visibility="hidden">Paper</button>
 <button onclick="myFunction('rock')">Rock</button>
 <button onclick="myFunction('scissors')">Scissors</button>
+-->
+<!-- here the code to start the game-->
+<button onclick="myGame()">Start the Game</button>
 
 <p id="demo"></p>
 
