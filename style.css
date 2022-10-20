@@ -1,0 +1,42 @@
+html {
+    font-family: sans-serif;
+  }
+  body {
+    width: 50%;
+    max-width: 800px;
+    min-width: 480px;
+    margin: 0 auto;
+  }
+  .lastResult {
+    color: white;
+    padding: 3px;
+  }
+
+  button {
+    padding:10px;
+    margin:10px;
+    font-size: 2em;
+  }
+  .selectionButtons{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    
+  }
+
+  main, .results {
+    display: flex;
+  }
+
+  .resultbar {
+    border: 1px solid black;
+  }
+
+  #resultPlayer {
+    background-color: blue;
+  }
+  #resultComputer {
+    background-color:aqua;
+  }
+  

@@ -5,64 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors GAME</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js" defer></script>  
 </head>
 
 <!-- style section from example game (number guessing game)-->
 <style>
-    html {
-      font-family: sans-serif;
-    }
-    body {
-      width: 50%;
-      max-width: 800px;
-      min-width: 480px;
-      margin: 0 auto;
-    }
-    .lastResult {
-      color: white;
-      padding: 3px;
-    }
-
-    button {
-      padding:10px;
-      margin:10px;
-      font-size: 2em;
-    }
-    .selectionButtons{
-      display:flex;
-      align-items: center;
-      justify-content: center;
-      
-    }
-
-
+  
   </style>
 
 <body>
     
     <h1>Rock Paper Scissors game</h1>
 
-    <p>Player needs to select one one of three 
+    <p class="info">Player needs to select one one of three 
         possible selections (paper, rock scissors).
-        Computer selects automatically. 
+        Computer selects autonomously. 
         Paper wins over rock, rock wins over scissors, scissors wins over paper.
-        Game has 5 rounds.
+        player that reaches 5 points first, wins the game.
     </p>
 
-<!-- comment out the input form from other game
-    <div class="form">
-<label for="guessField">Enter a guess: </label>
-<input type="text" id="guessField" class="guessField" value="75">
-<input type="submit" value="Submit guess" class="guessSubmit">
-</div>
--->
+    <!-- there will be three sections - human player, resuls and machine-->
+ 
 
- <!-- here the code to get my input via the buttons-->
- <div class="selectionButtons">
-    <button onclick="playRound('paper')">Paper</button>
-    <button onclick="playRound('rock')">Rock</button>
-    <button onclick="playRound('scissors')">Scissors</button>
+ 
+    <!-- here the code to get my input via the buttons-->
+ <main>
+    <div id="playerH" class="selectionButtons">
+      <div id="playerName">Human</div>
+    <button id="paper" class="key">Paper</button>
+    <button id="rock" class="key">Rock</button>
+    <button id="scissors" class="key">Scissors</buttonv>
   </div>
+  <div class="results">
+    <div class="resultbar">
+      <div id="resultPlayer">
+        resultPlayer here
+      </div>
+    </div>
+    <div class="resultbar">
+      <div id="resultComputer">
+        resultComputer here
+      </div>
+    </div>
+
+  </div>
+  <div id="playerC" class="selectionButtons">
+    <div id="ComputerName">Computer</div>
+    <button onclick="">Paper</button>
+    <button onclick="">Rock</button>
+    <button onclick="">Scissors</button>
+  </div>
+
+</main>
 
 <!-- here the results will be presented -->
 <div class="resultParas">
@@ -83,12 +78,6 @@
 
 <p id="demo"></p>
 
-<script>
 
-</script>
-
-
-    <!-- here the link to exteral javascript-->
-    <script src="script.js"></script> 
 </body>
 </html>
