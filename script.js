@@ -5,7 +5,20 @@
 const keys = document.querySelectorAll('.key');
 // we use the .forEach method to iterate through each button
 keys.forEach((key) => { key.addEventListener('click', function (e) { playRound(e.target.id)})});
-  
+// additional listerner to remove transition after the player selection
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+function removeTransition(e) {
+  if (e.propertyName !== 'transform') return;
+  e.target.classList.remove('playing');
+} 
+
+//take care of changing the player's name
+document.getElementById("playerName").onclick = function(e) {
+  //e.stopPropagation();
+  const listContent = prompt('Enter new players name');
+  document.getElementById("playerName").textContent = listContent;
+}
 
 
 //initialize counters
@@ -44,47 +57,53 @@ function playRound(playerSelection) {
     // your code here!
     //1. get input from player (person)
     //console.log("player choice: " +  playerSelection );
-    document.getElementById("playerSelection").innerText += playerSelection + ',';
+    //document.getElementById("playerSelection").innerText += playerSelection + ',';
+    
     //2. get input from computer (script)
     let computerSelection = getComputerChoice();
     //console.log("computer choice: " + computerSelection);
-    document.getElementById("computerSelection").innerText += computerSelection+ ',';
+    //document.getElementById("computerSelection").innerText += computerSelection+ ',';
     //3. compare both inputs (suppose they are valid!), declare winner ,count points
     if (playerSelection !== 0 && computerSelection !== 0 ) 
     { //valid results only
         if (computerSelection === playerSelection) {
             //both are equal, there is no winner
-            console.log("same selection");
+            //console.log("same selection");
             player +=0;
             comp +=0;
             currentWin="even"  //make the color appropriately
         } else if (computerSelection == "paper" && playerSelection =="rock"){
             comp +=1;
-            console.log("comp wins: " + comp);
+           // console.log("comp wins: " + comp);
             currentWin="lose" 
         } else if (computerSelection == "scissors" && playerSelection =="paper"){
             comp +=1;
-            console.log("comp wins: " + comp); 
+           // console.log("comp wins: " + comp); 
             currentWin="lose"
         } else if (computerSelection == "rock" && playerSelection =="scissors"){
             comp +=1;
-            console.log("comp wins: " + comp);
+           // console.log("comp wins: " + comp);
             currentWin="lose" 
              
         } else {
             player +=1;
-            console.log("player wins: " + player);
+           // console.log("player wins: " + player);
             currentWin="win"
             
         }
     }
+
     //write the round and current results:
     round++; //we add to the round
     showRoundWinner(currentWin);
     document.getElementById("round1").innerHTML = "Round: " + round ;
-    if (player===5 || comp===5) declareWinner();
-   // document.getElementById("result1").innerHTML = currentWin + "(points:" + player + ")";
+    //show the selected button
+    document.getElementById(playerSelection).classList.add('playing');
+    document.getElementById(computerSelection + "C").classList.add('playing');
 
+    if (player===5 || comp===5) setTimeout(declareWinner, 100);
+   // document.getElementById("result1").innerHTML = currentWin + "(points:" + player + ")";
+   
    
   }
 
@@ -137,9 +156,15 @@ function myFunction(argument) {
     if (winner==="even") {document.getElementById("playerC").style.backgroundColor ="orange";}
     if (winner==="win") {document.getElementById("playerC").style.backgroundColor ="red";}
     if (winner==="lose") {document.getElementById("playerC").style.backgroundColor ="green";}
-    document.getElementById("resultPlayer").innerText=player;
+    if (player !== 0) {
+    document.getElementById("resultPlayer").innerText= player;
+    document.getElementById("resultPlayer").style.height=(player/5)*100 + "%";
+    }
+    if (comp !== 0) {
     document.getElementById("resultComputer").innerText=comp;
+    document.getElementById("resultComputer").style.height=(comp/5)*100 + "%";
     //console.log("winner" + winner);
+    }
   };
 
  
@@ -147,15 +172,18 @@ function myFunction(argument) {
     {
         if (player>comp) {
            // console.log("you win! Good job!")
-            document.getElementById("result1").innerHTML= 
-            " you win! Good job! "
-            document.getElementById("result1").style.backgroundColor ="green";
+           // document.getElementById("result1").innerHTML= 
+           alert(" you win! Good job!");
+           location.reload();
+           // document.getElementById("result1").style.backgroundColor ="green";
             }
         
         else {
            // console.log("you lose!")
-            document.getElementById("result1").innerHTML= " you lose! "
-            document.getElementById("result1").style.backgroundColor ="red";
+           alert(" you lose! ");
+           location.reload();
+           // document.getElementById("result1").innerHTML= " you lose! "
+           // document.getElementById("result1").style.backgroundColor ="red";
             }
 
             //put all counters to zero
@@ -164,7 +192,7 @@ function myFunction(argument) {
             round=0; //it is the zero round played
             currentWin = 0; //here statuso of current play will be saved;
            // document.getElementById("result1").innerHTML=""
-            document.getElementById("result1").style.backgroundColor ="white";
+           // document.getElementById("result1").style.backgroundColor ="white";
           //  document.getElementById("playerSelection").innerText = "";
           //  document.getElementById("computerSelection").innerText = "";
    // }
@@ -174,6 +202,8 @@ function myFunction(argument) {
   //  }
     //console.log(playRound(playerSelection, computerSelection));
     }
+
+    
    
  
   
